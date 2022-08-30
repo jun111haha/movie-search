@@ -1,7 +1,7 @@
 package com.mymovie.movielog.user.service;
 
 import com.mymovie.movielog.user.entity.User;
-import com.mymovie.movielog.user.repository.user.UserRepository;
+import com.mymovie.movielog.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

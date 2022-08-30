@@ -12,7 +12,7 @@ import com.mymovie.movielog.oauth.repository.OAuth2AuthorizationRequestBasedOnCo
 import com.mymovie.movielog.oauth.service.CustomOAuth2UserService;
 import com.mymovie.movielog.oauth.service.CustomUserDetailsService;
 import com.mymovie.movielog.oauth.token.AuthTokenProvider;
-import com.mymovie.movielog.user.repository.user.UserRefreshTokenRepository;
+import com.mymovie.movielog.user.repository.UserRefreshTokenRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

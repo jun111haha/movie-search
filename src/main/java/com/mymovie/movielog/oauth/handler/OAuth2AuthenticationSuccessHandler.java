@@ -9,7 +9,7 @@ import com.mymovie.movielog.oauth.repository.OAuth2AuthorizationRequestBasedOnCo
 import com.mymovie.movielog.oauth.token.AuthToken;
 import com.mymovie.movielog.oauth.token.AuthTokenProvider;
 import com.mymovie.movielog.user.entity.UserRefreshToken;
-import com.mymovie.movielog.user.repository.user.UserRefreshTokenRepository;
+import com.mymovie.movielog.user.repository.UserRefreshTokenRepository;
 import com.mymovie.movielog.utils.CookieUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;

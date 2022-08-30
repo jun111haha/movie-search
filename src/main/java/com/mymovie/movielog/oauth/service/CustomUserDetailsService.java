@@ -2,7 +2,7 @@ package com.mymovie.movielog.oauth.service;
 
 import com.mymovie.movielog.oauth.entity.UserPrincipal;
 import com.mymovie.movielog.user.entity.User;
-import com.mymovie.movielog.user.repository.user.UserRepository;
+import com.mymovie.movielog.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

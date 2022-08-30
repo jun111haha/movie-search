@@ -7,7 +7,7 @@ import com.mymovie.movielog.oauth.exception.OAuthProviderMissMatchException;
 import com.mymovie.movielog.oauth.info.OAuth2UserInfo;
 import com.mymovie.movielog.oauth.info.OAuth2UserInfoFactory;
 import com.mymovie.movielog.user.entity.User;
-import com.mymovie.movielog.user.repository.user.UserRepository;
+import com.mymovie.movielog.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
 import org.springframework.security.core.AuthenticationException;

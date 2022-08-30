@@ -8,7 +8,7 @@ import com.mymovie.movielog.oauth.entity.UserPrincipal;
 import com.mymovie.movielog.oauth.token.AuthToken;
 import com.mymovie.movielog.oauth.token.AuthTokenProvider;
 import com.mymovie.movielog.user.entity.UserRefreshToken;
-import com.mymovie.movielog.user.repository.user.UserRefreshTokenRepository;
+import com.mymovie.movielog.user.repository.UserRefreshTokenRepository;
 import com.mymovie.movielog.utils.CookieUtil;
 import com.mymovie.movielog.utils.HeaderUtil;
 import io.jsonwebtoken.Claims;

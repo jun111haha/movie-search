@@ -1,4 +1,4 @@
-package com.mymovie.movielog.user.repository.user;
+package com.mymovie.movielog.user.repository;
 
 import com.mymovie.movielog.user.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
