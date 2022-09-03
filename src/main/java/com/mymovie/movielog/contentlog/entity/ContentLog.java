@@ -1,7 +1,7 @@
 package com.mymovie.movielog.contentlog.entity;
 
 import com.mymovie.movielog.common.BaseTimeEntity;
-import com.mymovie.movielog.user.entity.User;
+import com.mymovie.movielog.member.entity.Member;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,11 +23,11 @@ public class ContentLog extends BaseTimeEntity {
     private String movieId;
 
     @ManyToOne
-    @JoinColumn(referencedColumnName = "user_id", name = "user_id")
-    private User member;
+    @JoinColumn(referencedColumnName = "member_email", name = "member_email")
+    private Member member;
 
     @Builder
-    ContentLog(Long contentSeq, String movieId, User member){
+    ContentLog(Long contentSeq, String movieId, Member member){
         this.contentSeq = contentSeq;
         this.movieId = movieId;
         this.member = member;

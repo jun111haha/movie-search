@@ -1,5 +1,6 @@
 package com.mymovie.movielog.oauth.token;
 
+import com.mymovie.movielog.oauth.enumerate.RoleType;
 import io.jsonwebtoken.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -18,24 +19,13 @@ public class AuthToken {
 
     private static final String AUTHORITIES_KEY = "role";
 
-    AuthToken(String id, Date expiry, Key key) {
-        this.key = key;
-        this.token = createAuthToken(id, expiry);
-    }
-
-    AuthToken(String id, String role, Date expiry, Key key) {
+    AuthToken(String id, RoleType roleType, Date expiry, Key key) {
+        String role = roleType.toString(); // USER, ADMIN
         this.key = key;
         this.token = createAuthToken(id, role, expiry);
     }
 
-    private String createAuthToken(String id, Date expiry) {
-        return Jwts.builder()
-                .setSubject(id)
-                .signWith(key, SignatureAlgorithm.HS256)
-                .setExpiration(expiry)
-                .compact();
-    }
-
+    // AccessToken(여기선 appToken) 생성
     private String createAuthToken(String id, String role, Date expiry) {
         return Jwts.builder()
                 .setSubject(id)
@@ -45,6 +35,7 @@ public class AuthToken {
                 .compact();
     }
 
+    // AccessToken(여기선 appToken) 유효한지 체크
     public boolean validate() {
         return this.getTokenClaims() != null;
     }
@@ -55,10 +46,14 @@ public class AuthToken {
                     .setSigningKey(key)
                     .build()
                     .parseClaimsJws(token)
-                    .getBody();
+                    .getBody(); // token의 Body가 다음의 exception들로 인해 유효하지 않으면 각각의 로그를 콘솔에 출력
+
+
         } catch (SecurityException e) {
             log.info("Invalid JWT signature.");
         } catch (MalformedJwtException e) {
+            // 처음 로그인(/auth/kakao) 할 때, AccessToken(여기선 appToken) 없이 접근해도 token validate 체크
+            // -> exception 터트리지 않고 catch로 잡아줌
             log.info("Invalid JWT token.");
         } catch (ExpiredJwtException e) {
             log.info("Expired JWT token.");
@@ -66,20 +61,6 @@ public class AuthToken {
             log.info("Unsupported JWT token.");
         } catch (IllegalArgumentException e) {
             log.info("JWT token compact of handler are invalid.");
-        }
-        return null;
-    }
-
-    public Claims getExpiredTokenClaims() {
-        try {
-            Jwts.parserBuilder()
-                    .setSigningKey(key)
-                    .build()
-                    .parseClaimsJws(token)
-                    .getBody();
-        } catch (ExpiredJwtException e) {
-            log.info("Expired JWT token.");
-            return e.getClaims();
         }
         return null;
     }
