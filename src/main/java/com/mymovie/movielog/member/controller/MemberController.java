@@ -17,14 +17,14 @@ import javax.servlet.http.HttpServletRequest;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/auth")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "http://localhost:3000")
 public class MemberController {
 
     private final MemberService memberService;
 
-    @ApiOperation(value = "사용자 정보 조회", notes = "카카오 로그인을 통해 저장한 사용자의 정보 반환")
+    @ApiOperation(value = "사용자 정보 조회", notes = "카카오 통해 저장한 사용자의 정보 반환")
     @GetMapping("/details")
     public ResponseEntity<MemberResponse> getMemberData (HttpServletRequest request) {
         String token = JwtHeaderUtil.getAccessToken(request);

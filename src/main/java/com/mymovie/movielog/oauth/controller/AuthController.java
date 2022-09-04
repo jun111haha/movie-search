@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @Slf4j
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/auth")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "http://localhost:3000")
 public class AuthController {
@@ -31,7 +31,7 @@ public class AuthController {
     카카오 소셜 로그인 기능
     @return ResponseEntity<AuthResponse>
      */
-    @ApiOperation(value = "카카오 로그인", notes = "카카오 액세스 토큰을 이용해 사용자 정보 받고 저장해 앱의 토큰 반환")
+    @ApiOperation(value = "카카오 로그인", notes = "카카오 토큰을 이용해 사용자 저장 앱의 토큰 반환")
     @PostMapping(value = "/kakao")
     public ResponseEntity<AuthResponse> kakaoAuthRequest(@RequestBody AuthRequest authRequest) {
         return ApiResponse.success(kakaoAuthService.login(authRequest)); // body에 appToken 반환(response code 200)

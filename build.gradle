@@ -51,6 +51,7 @@ dependencies {
     // querydsl
     implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
     annotationProcessor "com.querydsl:querydsl-apt:${queryDslVersion}"
+    implementation "com.querydsl:querydsl-core:${queryDslVersion}"
 
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
@@ -60,7 +61,7 @@ dependencies {
     testImplementation 'org.springframework.security:spring-security-test'
 }
 
-//// cors 설정
+// cors 설정
 //cors:
 //    allowed-origins: 'http://localhost:3000'
 //    allowed-methods: GET,POST,PUT,DELETE,OPTIONS
@@ -77,28 +78,22 @@ tasks.named('test') {
 }
 
 
-// querydsl 사용할 경로 지정
+//querydsl 추가 시작
 def querydslDir = "$buildDir/generated/querydsl"
 
-// JPA 사용 여부 및 사용 경로 설정
 querydsl {
     jpa = true
     querydslSourcesDir = querydslDir
 }
-
-// build시 사용할 sourceSet 추가 설정
 sourceSets {
     main.java.srcDir querydslDir
 }
-
-// querydsl이 compileClassPath를 상속하도록 설정
-configurations {
-    querydsl.extendsFrom compileClasspath
-}
-
-// querydls 컴파일 시 사용할 옵션 설정
-compileQuerydsl {
-    if (file(querydslDir).exists())
-        delete(file(querydslDir))
+compileQuerydsl{
     options.annotationProcessorPath = configurations.querydsl
+}
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+    querydsl.extendsFrom compileClasspath
 }

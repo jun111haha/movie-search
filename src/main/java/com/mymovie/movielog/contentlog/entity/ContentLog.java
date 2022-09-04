@@ -12,7 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "content_log")
-public class ContentLog extends BaseTimeEntity {
+public class ContentLog extends BaseTimeEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +23,7 @@ public class ContentLog extends BaseTimeEntity {
     private String movieId;
 
     @ManyToOne
-    @JoinColumn(referencedColumnName = "member_email", name = "member_email")
+    @JoinColumn(referencedColumnName = "kakao_id", name = "kakao_id")
     private Member member;
 
     @Builder

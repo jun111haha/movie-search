@@ -62,8 +62,8 @@ public class SecurityConfig {
         http
             .authorizeRequests() // 요청에 대한 사용권한 체크
             .antMatchers(HttpMethod.OPTIONS).permitAll() // preflight 대응
-            .antMatchers("/auth/**").permitAll() // "/auth/**"에 대한 접근을 인증 절차 없이 허용(로그인 관련 url)
-//            .antMatchers("/api/v1/**").hasAnyRole("USER") // "/auth/**"에 대한 접근을 인증 절차 없이 허용(로그인 관련 url)
+            .antMatchers("/api/auth/**").permitAll() // "/auth/**"에 대한 접근을 인증 절차 없이 허용(로그인 관련 url)
+            .antMatchers("/api/v1/**").hasAnyRole("USER") //
                 /*
             특정 권한을 가진 사용자만 접근을 허용해야 할 경우 -> 허가 항목을 통해 가능함
             ex) .antMatchers("/admin/**").hasAnyRole("ADMIN")

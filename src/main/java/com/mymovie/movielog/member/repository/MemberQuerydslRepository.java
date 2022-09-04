@@ -1,6 +1,7 @@
 package com.mymovie.movielog.member.repository;
 
 import com.mymovie.movielog.member.entity.Member;
+import com.mymovie.movielog.member.entity.QMember;
 import com.mymovie.movielog.member.payload.MemberResponse;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
@@ -21,6 +22,7 @@ public class MemberQuerydslRepository {
 
     @Transactional(readOnly = true)
     public Member findByKakaoId(String kakaoId) {
+//        QMember member = new QMember(QMember.member);
         JPAQueryFactory jpaQueryFactory = new JPAQueryFactory(em);
 
         return jpaQueryFactory
@@ -31,6 +33,7 @@ public class MemberQuerydslRepository {
 
     @Transactional(readOnly = true)
     public MemberResponse findByMemberId(Long memberId) {
+//        QMember member = new QMember(QMember.member);
         JPAQueryFactory jpaQueryFactory = new JPAQueryFactory(em);
 
         return jpaQueryFactory
@@ -38,7 +41,8 @@ public class MemberQuerydslRepository {
                         member.nickname,
                         member.email,
                         member.profileImageUrl,
-                        member.thumbnailImageUrl))
+                        member.thumbnailImageUrl,
+                        member.age))
                 .from(member)
                 .where(member.id.eq(memberId))
                 .fetchOne();

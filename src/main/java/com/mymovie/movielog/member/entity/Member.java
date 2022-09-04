@@ -14,7 +14,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
-public class Member extends BaseTimeEntity {
+public class Member extends BaseTimeEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,14 +27,17 @@ public class Member extends BaseTimeEntity {
     @Column(name = "member_email", length = 100, nullable = false, unique = true)
     private String email;
 
-    @Column(name = "profile_image_url")
+    @Column(name = "profile_image_url", nullable = false)
     private String profileImageUrl;
 
-    @Column(name = "thumbnail_image_url")
+    @Column(name = "thumbnail_image_url", nullable = false)
     private String thumbnailImageUrl;
 
     @Column(name = "kakao_id", nullable = false)
     private String kakaoId;
+
+    @Column(name ="kakao_age", nullable = false)
+    private String age;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
