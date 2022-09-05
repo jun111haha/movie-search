@@ -34,5 +34,6 @@ public class KakaoUserResponse {
     @AllArgsConstructor
     public static class KakaoAccount {
         private String email;
+        private String age_range;
     }
 }

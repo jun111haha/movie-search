@@ -36,6 +36,7 @@ public class ClientKakao {
                 .roleType(RoleType.USER)
                 .profileImageUrl(kakaoUserResponse.getProperties().getProfileImage())
                 .thumbnailImageUrl(kakaoUserResponse.getProperties().getThumbnailImage())
+                .age(kakaoUserResponse.getKakaoAccount().getAge_range())
                 .build();
     }
 }
