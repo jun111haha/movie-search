@@ -2,6 +2,7 @@ package com.mymovie.movielog.member.service;
 
 import com.mymovie.movielog.member.payload.MemberResponse;
 import com.mymovie.movielog.member.repository.MemberQuerydslRepository;
+import com.mymovie.movielog.member.repository.MemberRepository;
 import com.mymovie.movielog.oauth.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,6 +17,7 @@ public class MemberService {
 
     private final AuthService authService;
     private final MemberQuerydslRepository memberQuerydslRepository;
+    private final MemberRepository memberRepository;
 
     public MemberResponse getMemberData (String token) {
         Long memberId = authService.getMemberId(token);

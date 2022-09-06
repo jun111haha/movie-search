@@ -1,7 +1,6 @@
 package com.mymovie.movielog.member.repository;
 
 import com.mymovie.movielog.member.entity.Member;
-import com.mymovie.movielog.member.entity.QMember;
 import com.mymovie.movielog.member.payload.MemberResponse;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;

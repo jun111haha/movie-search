@@ -12,6 +12,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class KakaoAuthService {
@@ -28,7 +30,7 @@ public class KakaoAuthService {
         Member kakaoMember = clientKakao.getUserData(authRequest.getAccessToken());
 
         String kakaoId = kakaoMember.getKakaoId();
-        Member member = memberQuerydslRepository.findByKakaoId(kakaoId);
+        Optional<Member> member = memberRepository.findByKakaoId(kakaoId);
 
         // 신규 토큰 생성
         AuthToken appToken = authTokenProvider.createUserAppToken(kakaoId);
