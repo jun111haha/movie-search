@@ -50,7 +50,9 @@ public class SecurityConfig {
                 "/v2/api-docs",
                 "/configuration/**",
                 "/swagger*/**",
-                "/webjars/**"
+                "/webjars/**",
+                "/swagger-ui/**",
+                "/swagger-ui.html"
         );
     }
 
@@ -62,13 +64,13 @@ public class SecurityConfig {
         http
             .authorizeRequests() // 요청에 대한 사용권한 체크
             .antMatchers(HttpMethod.OPTIONS).permitAll() // preflight 대응
-            .antMatchers("/api/auth/**").permitAll() // "/auth/**"에 대한 접근을 인증 절차 없이 허용(로그인 관련 url)
-            .antMatchers("/api/v1/**").hasAnyRole("USER") //
+            .antMatchers("/api/auth/**", "/api/v1/**").permitAll() // "/auth/**"에 대한 접근을 인증 절차 없이 허용(로그인 관련 url)
+//            .antMatchers("/api/v1/**").hasAnyRole("USER")
                 /*
             특정 권한을 가진 사용자만 접근을 허용해야 할 경우 -> 허가 항목을 통해 가능함
             ex) .antMatchers("/admin/**").hasAnyRole("ADMIN")
              */
-            .anyRequest().authenticated() // 위에서 따로 지정한 접근허용 리소스 설정 후, 그 외 나머지 리소스들은 무조건 인증 완료해야 접근 가능
+//            .anyRequest().authenticated() // 위에서 따로 지정한 접근허용 리소스 설정 후, 그 외 나머지 리소스들은 무조건 인증 완료해야 접근 가능
             .and()
             .headers() // 아래에 X-Frame-Option 헤더 설정을 위해 headers() 작성
             .frameOptions().sameOrigin() // 동일 도메인에서는 iframe 접근 가능하도록 X-Frame-Options을 sameOrigin()으로

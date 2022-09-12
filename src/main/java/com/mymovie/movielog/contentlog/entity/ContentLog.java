@@ -20,16 +20,15 @@ public class ContentLog extends BaseTimeEntity{
     private Long contentSeq;
 
     @Column(name = "movie_id")
-    private String movieId;
+    private Long movieId;
 
-    @ManyToOne
-    @JoinColumn(referencedColumnName = "kakao_id", name = "kakao_id")
-    private Member member;
+    @Column(name = "kakao_id")
+    private String kakaoId;
 
     @Builder
-    ContentLog(Long contentSeq, String movieId, Member member){
+    ContentLog(Long contentSeq, Long movieId, String kakaoId){
         this.contentSeq = contentSeq;
         this.movieId = movieId;
-        this.member = member;
+        this.kakaoId = kakaoId;
     }
 }

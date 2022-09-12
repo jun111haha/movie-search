@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 public class MemberResponse {
     private String nickname;
     private String email;
+    private String kakaoId;
     private String profileImageUrl;
     private String thumbnailImageUrl;
 }

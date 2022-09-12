@@ -41,6 +41,7 @@ public class MemberQuerydslRepository {
                         member.email,
                         member.profileImageUrl,
                         member.thumbnailImageUrl,
+                        member.kakaoId,
                         member.age))
                 .from(member)
                 .where(member.id.eq(memberId))

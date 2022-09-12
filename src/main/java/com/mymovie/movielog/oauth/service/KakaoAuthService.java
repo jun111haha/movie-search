@@ -30,7 +30,7 @@ public class KakaoAuthService {
         Member kakaoMember = clientKakao.getUserData(authRequest.getAccessToken());
 
         String kakaoId = kakaoMember.getKakaoId();
-        Optional<Member> member = memberRepository.findByKakaoId(kakaoId);
+        Member member = memberQuerydslRepository.findByKakaoId(kakaoId);
 
         // 신규 토큰 생성
         AuthToken appToken = authTokenProvider.createUserAppToken(kakaoId);
