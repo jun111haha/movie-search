@@ -12,14 +12,28 @@ import javax.validation.constraints.NotBlank;
 public class ContentLogSaveRequestDto {
 
     @NotBlank(message = "영화정보가 없습니다.")
-    private Long movieId;
+    private Long contentId;
 
     @NotBlank(message = "유저가 없습니다.")
     private String kakaoId;
 
+    @NotBlank(message = "타이틀이 없습니다.")
+    private String contentTitle;
+
+    private String contentUrl;
+
+    private String contentRating;
+
+    private boolean contentCheck;
+
     public ContentLog toEntity(){
         return ContentLog.builder()
-                .movieId(movieId)
-                .kakaoId(kakaoId).build();
+                .contentId(contentId)
+                .kakaoId(kakaoId)
+                .contentUrl(contentUrl)
+                .contentTitle(contentTitle)
+                .contentRating(contentRating)
+                .contentCheck(contentCheck)
+                .build();
     }
 }

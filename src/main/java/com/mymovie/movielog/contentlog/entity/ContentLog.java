@@ -1,7 +1,6 @@
 package com.mymovie.movielog.contentlog.entity;
 
 import com.mymovie.movielog.common.BaseTimeEntity;
-import com.mymovie.movielog.member.entity.Member;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,16 +18,33 @@ public class ContentLog extends BaseTimeEntity{
     @Column(name = "content_seq")
     private Long contentSeq;
 
-    @Column(name = "movie_id")
-    private Long movieId;
+    @Column(name = "content_id")
+    private Long contentId;
 
     @Column(name = "kakao_id")
     private String kakaoId;
 
+    @Column(name = "content_url", nullable = false)
+    private String contentUrl;
+
+    @Column(name = "content_title")
+    private String contentTitle;
+
+    @Column(name = "content_rating", nullable = false)
+    private String contentRating;
+
+    @Column(name = "content_check")
+    private boolean contentCheck;
+
     @Builder
-    ContentLog(Long contentSeq, Long movieId, String kakaoId){
+    ContentLog(Long contentSeq, Long contentId, String kakaoId, String contentUrl
+            , String contentTitle, String contentRating, boolean contentCheck){
         this.contentSeq = contentSeq;
-        this.movieId = movieId;
+        this.contentId = contentId;
         this.kakaoId = kakaoId;
+        this.contentUrl = contentUrl;
+        this.contentTitle = contentTitle;
+        this.contentRating = contentRating;
+        this.contentCheck = contentCheck;
     }
 }
