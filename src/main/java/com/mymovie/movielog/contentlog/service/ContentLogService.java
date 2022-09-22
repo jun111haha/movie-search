@@ -1,9 +1,9 @@
 package com.mymovie.movielog.contentlog.service;
 
-import com.mymovie.movielog.contentlog.dto.ContentLogMyContentRequestDto;
 import com.mymovie.movielog.contentlog.dto.ContentLogMyContentResponseDto;
 import com.mymovie.movielog.contentlog.dto.ContentLogSaveRequestDto;
 import com.mymovie.movielog.contentlog.entity.ContentLog;
+import com.mymovie.movielog.contentlog.entity.ContentLogQuerydslRepository;
 import com.mymovie.movielog.contentlog.exception.ContentLogSaveOverlapException;
 import com.mymovie.movielog.contentlog.repository.ContentLogRepository;
 import com.mymovie.movielog.member.repository.MemberRepository;
@@ -12,7 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -23,6 +22,7 @@ import java.util.stream.Collectors;
 public class ContentLogService {
     private final ContentLogRepository contentLogRepository;
     private final MemberRepository memberRepository;
+    private final ContentLogQuerydslRepository contentLogQuerydslRepository;
 
     @Transactional
     public Long contentLogInsert(ContentLogSaveRequestDto contentLogSaveRequestDto){
@@ -56,5 +56,10 @@ public class ContentLogService {
 
         }
         return contentLogMyContentResponseDto;
+    }
+
+    @Transactional
+    public void contentDeleteOne(Long contentId){
+        contentLogQuerydslRepository.contentLogDeleteOne(contentId);
     }
 }

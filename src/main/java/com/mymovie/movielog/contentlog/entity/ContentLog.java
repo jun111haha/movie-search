@@ -18,7 +18,7 @@ public class ContentLog extends BaseTimeEntity{
     @Column(name = "content_seq")
     private Long contentSeq;
 
-    @Column(name = "content_id")
+    @Column(name = "content_id", unique = true)
     private Long contentId;
 
     @Column(name = "kakao_id")

@@ -7,6 +7,7 @@ import com.mymovie.movielog.contentlog.service.ContentLogService;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,5 +31,12 @@ public class ContentLogController {
     @GetMapping("/content/{id}")
     public ResponseEntity<List<ContentLogMyContentResponseDto>> getMyLogContent(@PathVariable("id") String kakaoId){
         return ApiResponse.success(contentLogService.getContent(kakaoId));
+    }
+
+    @ApiOperation(value = "컨텐츠 삭제", notes = "컨텐츠 삭제")
+    @DeleteMapping("/content/delete/{id}")
+    public ResponseEntity contentDelete(@PathVariable("id") Long contentId){
+        contentLogService.contentDeleteOne((contentId));
+        return ApiResponse.success("id" + contentId + "삭제완료");
     }
 }

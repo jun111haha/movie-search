@@ -21,7 +21,6 @@ public class MemberQuerydslRepository {
 
     @Transactional(readOnly = true)
     public Member findByKakaoId(String kakaoId) {
-//        QMember member = new QMember(QMember.member);
         JPAQueryFactory jpaQueryFactory = new JPAQueryFactory(em);
 
         return jpaQueryFactory
@@ -32,7 +31,6 @@ public class MemberQuerydslRepository {
 
     @Transactional(readOnly = true)
     public MemberResponse findByMemberId(Long memberId) {
-//        QMember member = new QMember(QMember.member);
         JPAQueryFactory jpaQueryFactory = new JPAQueryFactory(em);
 
         return jpaQueryFactory
