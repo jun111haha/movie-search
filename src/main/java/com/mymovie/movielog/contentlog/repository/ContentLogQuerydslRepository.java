@@ -1,4 +1,4 @@
-package com.mymovie.movielog.contentlog.entity;
+package com.mymovie.movielog.contentlog.repository;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;

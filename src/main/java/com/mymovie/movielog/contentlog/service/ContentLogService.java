@@ -3,7 +3,7 @@ package com.mymovie.movielog.contentlog.service;
 import com.mymovie.movielog.contentlog.dto.ContentLogMyContentResponseDto;
 import com.mymovie.movielog.contentlog.dto.ContentLogSaveRequestDto;
 import com.mymovie.movielog.contentlog.entity.ContentLog;
-import com.mymovie.movielog.contentlog.entity.ContentLogQuerydslRepository;
+import com.mymovie.movielog.contentlog.repository.ContentLogQuerydslRepository;
 import com.mymovie.movielog.contentlog.exception.ContentLogSaveOverlapException;
 import com.mymovie.movielog.contentlog.repository.ContentLogRepository;
 import com.mymovie.movielog.member.repository.MemberRepository;
