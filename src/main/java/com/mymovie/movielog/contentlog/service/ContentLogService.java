@@ -28,7 +28,7 @@ public class ContentLogService {
     public Long contentLogInsert(ContentLogSaveRequestDto contentLogSaveRequestDto){
 
         memberRepository.findByKakaoId(contentLogSaveRequestDto.getKakaoId()).orElseThrow(() ->
-                new IllegalArgumentException("사용자를 찾을수 없습니다."));
+                new IllegalArgumentException("사용자를 찾을수 없습니다"));
 
         Optional<ContentLog> contentLog
                 = contentLogRepository.findByContentId(contentLogSaveRequestDto.getContentId());
