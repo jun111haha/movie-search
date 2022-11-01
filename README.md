@@ -10,3 +10,6 @@
   <img src="https://img.shields.io/badge/gradle-02303A?style=for-the-badge&logo=gradle&logoColor=black">
   </br>
 </div>
+
+## API 정의서
+<img width="1517" alt="스크린샷 2022-11-02 오전 12 29 14" src="https://user-images.githubusercontent.com/59434443/199272851-60e453be-bb16-44ed-ae55-0c4a639a6137.png">
