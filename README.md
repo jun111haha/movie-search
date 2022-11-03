@@ -23,7 +23,7 @@
 ## 프로젝트 구성도
 
 ## 실행 방법
-### client 실행
+### client 실행 git 주소
 - https://github.com/jun111haha/movielog
 
 ### server 실행
