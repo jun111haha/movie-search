@@ -24,5 +24,15 @@
 
 ## 실행 방법
 ### client 실행
+- https://github.com/jun111haha/movielog
 
 ### server 실행
+**1. 원격 저장소 복제**
+<pre>
+$ git clone https://github.com/jun111haha/movielog-backend.git
+</pre>
+
+**2. 스프링부트 Run**
+<pre>
+$ 스프링부트 Main 시작
+</pre>
