@@ -70,6 +70,7 @@ TMDB(The Movie DataBase) API를 활용해서 만든 리액트 프로젝트로 AP
 - Api.js 에 TMDB Apikey 등록
 
 **1. 원격 저장소 복제**
+## FE
 <pre>
 $ git clone https://github.com/jun111haha/movielog.git
 </pre>
@@ -89,5 +90,13 @@ $ npm install
 $ npm run serve
 </pre>
 
-## 백엔드서버 깃허브
-- https://github.com/jun111haha/movielog-backend
+## BE
+**1. 원격 저장소 복제**
+<pre>
+$ git clone https://github.com/jun111haha/movielog-backend.git
+</pre>
+
+**2. 스프링부트 Run**
+<pre>
+$ 스프링부트 Main 시작
+</pre>
