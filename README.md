@@ -61,6 +61,10 @@ TMDB(The Movie DataBase) API를 활용해서 만든 리액트 프로젝트로 AP
 - YouTube Api 를 활용하여 예고편을 띄우는 방법
 - 백엔드서버와 통신하는 방법
 - 소셜로그인 토큰으로 받아 인증 / 인가 처리
+- REST API 구현
+- JPA 이용하여 DB 와 통신
+- QueryDSL 활용
+- Entity DB Table 와 매핑
 
 ## 실행방법
 - Api.js 에 TMDB Apikey 등록
