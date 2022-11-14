@@ -62,7 +62,7 @@ TMDB(The Movie DataBase) API를 활용해서 만든 리액트 프로젝트로 AP
 - 백엔드서버와 통신하는 방법
 - 소셜로그인 토큰으로 받아 인증 / 인가 처리
 - REST API 구현
-- JPA 이용하여 DB 와 통신
+- Hibernate ORM 활용 JPA 구현하여 DB 와 통신
 - QueryDSL 활용
 - Entity DB Table 와 매핑
 
